@@ -61,4 +61,21 @@ router.post('/resources', (req, res) => {
             res.status(500).json({ message: 'Failed to create new resource' });
         });
 });
+
+/*************************TASK LISTS*******************/
+//localhost:5000/api/projects/2/tasks
+//localhost: 5000/api/projects/1/tasks
+//** */ get task lists by project id
+router.get("/:id/tasks", (req, res) => {
+    const { id } = req.params;
+
+    Projects.listTasks(id)
+        .then(tasks => {
+            res.status(201).json(tasks);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ message: "Failed to get tasks" });
+        });
+});
 module.exports = router;
