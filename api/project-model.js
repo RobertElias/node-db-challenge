@@ -4,7 +4,7 @@ module.exports = {
     list,
     listById, // id
     //getAllTasks,
-   listTasks, // id
+    listTasks, // id
     listResources,
     listProjResources, // id
     create,
