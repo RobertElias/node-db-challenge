@@ -48,3 +48,12 @@ function listProjResources(id) {
         .select("p.projectName", "p.description", "r.resourceName", "r.description")
         .where("p.id", id);
 }
+
+
+function createResource(resource) {
+    return db("resources as r")
+        .insert(resource)
+        .then(() => {
+            return listResources();
+        });
+}
