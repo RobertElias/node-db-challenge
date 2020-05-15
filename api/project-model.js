@@ -33,3 +33,10 @@ function createTask(task) {
     task.completed ? (task.completed = true) : (task.completed = false);
     return db('tasks').insert(task, 'id');
 }
+
+function listTasks(id) {
+    return db('tasks as t')
+        .join('projects as p', 'p.id', 't.projectId')
+        .select('t.id', 't.taskDescription', 't.notes', 't.completed')
+        .where('p.id', id);
+};
