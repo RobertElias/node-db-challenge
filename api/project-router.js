@@ -78,4 +78,22 @@ router.get("/:id/tasks", (req, res) => {
             res.status(500).json({ message: "Failed to get tasks" });
         });
 });
+
+/* POST TASKS by project id */
+//localhost:5000/api/projects/1/tasks
+router.post("/:id/tasks", (req, res) => {
+    const newTask = req.body;
+    //const { id } = req.params;
+
+    Projects.createTask(newTask)
+        .then(tasks => {
+            res.status(201).json({
+                message: "Created new task on projectId"
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json({ message: "Failed to create new task" });
+        });
+});
 module.exports = router;
