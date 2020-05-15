@@ -57,3 +57,6 @@ function createResource(resource) {
             return listResources();
         });
 }
+function listResources() {
+    return db("resources");
+}
