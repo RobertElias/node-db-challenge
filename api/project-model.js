@@ -22,3 +22,9 @@ function create(requestBody) {
 function list() {
     return db("projects");
 }
+
+function listById(id) {
+    return db("projects")
+        .where({ id })
+        .first();
+}
