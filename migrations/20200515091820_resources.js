@@ -7,7 +7,8 @@ exports.up = function(knex) {
             //resources name
             tbl.string('resourceName', 128).unique();
             //description
-            tbl.string('description', 500).optional();
+            tbl.string('description', 500);
+            tbl.boolean('completed').notNullable();
 
         })
 

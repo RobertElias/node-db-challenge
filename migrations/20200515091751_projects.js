@@ -6,9 +6,9 @@ exports.up = function(knex) {
             //project name
             tbl.string('projectName', 128).notNullable();
             //description
-            tbl.string('description', 500).optional();
+            tbl.string('description', 500);
             // status completed with boolen
-            tbl.boolean('completed').boolean(false).required();
+            tbl.boolean('completed').notNullable();
         })
 
 };
