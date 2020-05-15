@@ -8,7 +8,7 @@ exports.up = function(knex) {
             //description
             tbl.string('description', 500);
             // status completed with boolen
-            tbl.boolean('completed').notNullable();
+            tbl.boolean('completed');
         })
 
 };

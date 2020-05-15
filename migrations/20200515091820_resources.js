@@ -1,4 +1,3 @@
-
 exports.up = function(knex) {
     return knex.schema
         .createTable('resources', tbl => {
@@ -8,7 +7,6 @@ exports.up = function(knex) {
             tbl.string('resourceName', 128).unique();
             //description
             tbl.string('description', 500);
-            tbl.boolean('completed').notNullable();
 
         })
 

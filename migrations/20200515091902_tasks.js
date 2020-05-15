@@ -8,7 +8,7 @@ exports.up = function(knex) {
             // task notes
             tbl.string('notes', 500);
             // task status using boolean
-            tbl.boolean('completed').notNullable();
+            tbl.boolean('completed').defaultTo(false).notNullable();
             //project id
             tbl.integer('projectId')
                 .unsigned()
