@@ -1,6 +1,5 @@
 // Update with your config settings.
 
-
 module.exports = {
 
   development: {
@@ -48,3 +47,5 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
+
+};
