@@ -48,5 +48,17 @@ router.get('/resources', (req, res) => {
         });
 });
 
-
+// adding new resources  -----------/////
+//localhost:5000/api/projects/resources
+router.post('/resources', (req, res) => {
+    const addResource = req.body;
+    Projects
+        .createResource(addResource)
+        .then(proj => {
+            res.status(201).json({ message: 'Added a new resource' });
+        })
+        .catch(err => {
+            res.status(500).json({ message: 'Failed to create new resource' });
+        });
+});
 module.exports = router;
