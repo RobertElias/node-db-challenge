@@ -1,9 +1,8 @@
 const db = require("../data/dataConfig.js");
 module.exports = {
-    // addTasks,
+   
     list,
     listById, // id
-    //getAllTasks,
     listTasks, // id
     listResources,
     listProjResources, // id
