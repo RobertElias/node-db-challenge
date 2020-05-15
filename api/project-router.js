@@ -36,7 +36,7 @@ router.post("/", (req, res) => {
 
 /**************RESOURCES SECTION***************/
 // Getting a list of resources
-//localhost:5000/api/resources
+//localhost:5000/api/projects/resources
 router.get('/resources', (req, res) => {
     Projects
         .listResources()
@@ -55,7 +55,7 @@ router.post('/resources', (req, res) => {
     Projects
         .createResource(addResource)
         .then(proj => {
-            res.status(201).json({ message: 'Added a new resource' });
+            res.status(201).json({ proj });
         })
         .catch(err => {
             res.status(500).json({ message: 'Failed to create new resource' });
@@ -88,7 +88,7 @@ router.post("/:id/tasks", (req, res) => {
     Projects.createTask(newTask)
         .then(tasks => {
             res.status(201).json({
-                message: "Created new task on projectId"
+                message: "Created new task", newTask
             });
         })
         .catch(err => {
