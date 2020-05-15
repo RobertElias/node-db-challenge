@@ -18,3 +18,7 @@ function create(requestBody) {
             return listById(id);
         });
 }
+
+function list() {
+    return db("projects");
+}
