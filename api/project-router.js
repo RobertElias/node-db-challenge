@@ -66,22 +66,33 @@ router.post('/resources', (req, res) => {
 //localhost:5000/api/projects/2/tasks
 //localhost: 5000/api/projects/1/tasks
 //** */ get task lists by project id
-router.get("/:id/tasks", (req, res) => {
-    const { id } = req.params;
+// router.get("/:id/tasks", (req, res) => {
+//     const { id } = req.params;
 
-    Projects.listTasks(id)
-        .then(tasks => {
-            res.status(201).json(tasks);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({ message: "Failed to get tasks" });
-        });
+//     Projects.listTasks(id)
+//         .then(tasks => {
+//             res.status(201).json(tasks);
+//         })
+//         .catch(err => {
+//             console.log(err);
+//             res.status(500).json({ message: "Failed to get tasks" });
+//         });
+// });
+
+
+router.get('/tasks', (req, res) => {
+	Projects.listTasks()
+		.then(tasks => {
+			res.status(201).json(tasks);
+		})
+		.catch(error => {
+			res.status(500).json({message: error});
+		});
 });
 
 /* POST TASKS by project id */
 //localhost:5000/api/projects/1/tasks
-router.post("/:id/tasks", (req, res) => {
+router.post("/tasks", (req, res) => {
     const newTask = req.body;
     //const { id } = req.params;
 

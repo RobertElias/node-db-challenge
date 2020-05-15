@@ -3,7 +3,8 @@ module.exports = {
     // addTasks,
     list,
     listById, // id
-    listTasks, // id
+    //getAllTasks,
+   listTasks, // id
     listResources,
     listProjResources, // id
     create,
@@ -34,12 +35,13 @@ function createTask(task) {
     return db('tasks').insert(task, 'id');
 }
 
-function listTasks(id) {
+//The list of tasks should include the project name and project description.
+function listTasks() {
     return db('tasks as t')
         .join('projects as p', 'p.id', 't.projectId')
-        .select('t.id', 't.taskDescription', 't.notes', 't.completed')
-        .where('p.id', id);
+        .select('t.id', 't.taskDescription', 't.notes', 't.completed',"p.projectName", "p.description");
 };
+
 
 function listProjResources(id) {
     return db("proj-resources as pr")
