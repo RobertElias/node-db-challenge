@@ -28,3 +28,8 @@ function listById(id) {
         .where({ id })
         .first();
 }
+
+function createTask(task) {
+    task.completed ? (task.completed = true) : (task.completed = false);
+    return db('tasks').insert(task, 'id');
+}
