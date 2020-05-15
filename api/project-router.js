@@ -34,4 +34,19 @@ router.post("/", (req, res) => {
         });
 });
 
+/**************RESOURCES SECTION***************/
+// Getting a list of resources
+//localhost:5000/api/resources
+router.get('/resources', (req, res) => {
+    Projects
+        .listResources()
+        .then(resource => {
+            res.json(resource);
+        })
+        .catch(err => {
+            res.status(500).json({ message: 'I failed you master... ' });
+        });
+});
+
+
 module.exports = router;
