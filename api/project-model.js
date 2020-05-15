@@ -10,3 +10,11 @@ module.exports = {
     createTask,
     createResource
 };
+
+function create(requestBody) {
+    return db("projects")
+        .insert(requestBody)
+        .then(([id]) => {
+            return listById(id);
+        });
+}
