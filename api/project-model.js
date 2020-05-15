@@ -40,3 +40,11 @@ function listTasks(id) {
         .select('t.id', 't.taskDescription', 't.notes', 't.completed')
         .where('p.id', id);
 };
+
+function listProjResources(id) {
+    return db("proj-resources as pr")
+        .join("projects as p", "p.id", "pr.projectID")
+        .join("resources as r", "r.id", "pr.resourceID")
+        .select("p.projectName", "p.description", "r.resourceName", "r.description")
+        .where("p.id", id);
+}
